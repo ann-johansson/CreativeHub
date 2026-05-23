@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CreativeHub.Api/CreativeHub.Api.csproj" />
+    <Project Path="src/CreativeHub.Application/CreativeHub.Application.csproj" />
+    <Project Path="src/CreativeHub.Domain/CreativeHub.Domain.csproj" />
+    <Project Path="src/CreativeHub.Infrastructure/CreativeHub.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CreativeHub.Tests/CreativeHub.Tests.csproj" />
+  </Folder>
+</Solution>
