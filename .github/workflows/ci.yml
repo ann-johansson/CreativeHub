@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
 
@@ -26,4 +26,11 @@ jobs:
         run: dotnet build CreativeHub.sln --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test CreativeHub.sln --configuration Release --no-build --verbosity normal
+        run: dotnet test CreativeHub.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: test-results
+          path: '**/test-results.trx'
